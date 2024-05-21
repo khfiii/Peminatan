@@ -1,0 +1,1 @@
+Hi, anda diarahkan ke halaman ini
