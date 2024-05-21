@@ -17,7 +17,7 @@ class PesertaResource extends Resource
 {
     protected static ?string $model = Peserta::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-user';
 
     public static function form(Form $form): Form
     {
@@ -43,7 +43,8 @@ class PesertaResource extends Resource
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
-            ]);
+            ])
+            ->emptyStateHeading('Tidak ada list peserta saat ini');
     }
 
     public static function getRelations(): array
@@ -57,7 +58,6 @@ class PesertaResource extends Resource
     {
         return [
             'index' => Pages\ListPesertas::route('/'),
-            'create' => Pages\CreatePeserta::route('/create'),
             'edit' => Pages\EditPeserta::route('/{record}/edit'),
         ];
     }
