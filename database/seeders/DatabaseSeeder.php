@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Database\Seeders\JurusanSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,10 +16,9 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'admin',
-            'email' => 'admin@gmail.com',
-            'password' => 'admin'
+        $this->call([
+            UserSeeder::class, 
+            JurusanSeeder::class
         ]);
     }
 }

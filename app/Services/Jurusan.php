@@ -12,7 +12,7 @@ class Jurusan
         $word = ''; 
 
         foreach($words as $result){
-                $word .= substr($result, 0, 1);
+                $word .= substr($result, 0, 2);
         }
 
         return strtoupper($word); 
