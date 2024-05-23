@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('pesertas', function (Blueprint $table) {
             $table->id();
+            $table->text('nama_peserta'); 
+            $table->date('tanggal_lahir'); 
+            $table->string('nomor_telepon'); 
+            $table->string('email'); 
+            $table->string('sekolah_asal'); 
+            $table->date('tahun_lulus'); 
             $table->timestamps();
         });
     }
