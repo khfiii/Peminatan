@@ -11,8 +11,7 @@ use Filament\Tables\Table;
 use Filament\Forms\Components;
 use Filament\Resources\Resource;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Forms\Components\TextInput;
-use Illuminate\Database\Eloquent\Builder;
+use App\Facades\Jurusan as JurusanFacade;
 use App\Filament\Resources\JurusanResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\JurusanResource\RelationManagers;
@@ -30,7 +29,7 @@ class JurusanResource extends Resource
                 Components\TextInput::make('nama_jurusan')
                 ->live(onBlur:true)
                 ->afterStateUpdated(function(Set $set, ?string $state){
-                    $kode_jurusan = static::getFirstWord($state); 
+                    $kode_jurusan = JurusanFacade::generateCode($state); 
                     $set('kode_jurusan', $kode_jurusan); 
                 }),     
                 Components\TextInput::make('kode_jurusan')
@@ -75,17 +74,4 @@ class JurusanResource extends Resource
         ];
     }
 
-    public static function getFirstWord(?string $string) : string
-    {
-
-        $words = explode(' ', $string);
-
-        $word = ''; 
-
-        foreach($words as $result){
-                $word .= substr($result, 0, 1);
-        }
-
-        return strtoupper($word); 
-    } 
 }
