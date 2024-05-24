@@ -2,8 +2,9 @@
 
 namespace App\Filament\Resources\SoalResource\Pages;
 
-use App\Filament\Resources\SoalResource;
 use Filament\Actions;
+use Filament\Support\Enums\MaxWidth;
+use App\Filament\Resources\SoalResource;
 use Filament\Resources\Pages\ListRecords;
 
 class ListSoals extends ListRecords
@@ -13,7 +14,8 @@ class ListSoals extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\CreateAction::make()
+            ->modalWidth(MaxWidth::Large),
         ];
     }
 }

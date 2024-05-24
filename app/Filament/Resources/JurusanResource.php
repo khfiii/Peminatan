@@ -10,11 +10,10 @@ use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Forms\Components;
 use Filament\Resources\Resource;
+use Filament\Support\Enums\MaxWidth;
 use Filament\Tables\Columns\TextColumn;
 use App\Facades\Jurusan as JurusanFacade;
 use App\Filament\Resources\JurusanResource\Pages;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\JurusanResource\RelationManagers;
 
 class JurusanResource extends Resource
 {
@@ -52,8 +51,9 @@ class JurusanResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\EditAction::make()
+                ->modalWidth(MaxWidth::Large)
+                ->color('primary'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
