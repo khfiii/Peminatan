@@ -27,6 +27,7 @@ class JurusanResource extends Resource
         return $form
             ->schema([
                 Components\TextInput::make('nama_jurusan')
+                ->required()
                 ->live(onBlur:true)
                 ->afterStateUpdated(function(Set $set, ?string $state){
                     $kode_jurusan = JurusanFacade::generateCode($state); 
