@@ -12,9 +12,9 @@ class Jurusan
         $word = ''; 
 
         foreach($words as $result){
-                $word .= substr($result, 0, 2);
+                $word .= substr($result, 0, 1);
         }
 
-        return strtoupper($word); 
+        return strtoupper($word).rand(0,10); 
     } 
 }
