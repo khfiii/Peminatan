@@ -17,7 +17,7 @@ class SoalResource extends Resource
 {
     protected static ?string $model = Soal::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-bookmark';
 
     public static function form(Form $form): Form
     {

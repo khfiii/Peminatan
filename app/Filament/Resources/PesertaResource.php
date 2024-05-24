@@ -17,7 +17,7 @@ class PesertaResource extends Resource
 {
     protected static ?string $model = Peserta::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-user';
+    protected static ?string $navigationIcon = 'heroicon-o-user-group';
 
     public static function form(Form $form): Form
     {
