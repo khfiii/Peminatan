@@ -13,7 +13,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('soals', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->foreignIdFor(Jurusan::class)->constrained()->cascadeOnDelete();
             $table->string('nama_soal'); 
             $table->integer('jumlah_soal'); 
