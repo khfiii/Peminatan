@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use App\Models\Jurusan;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -12,7 +13,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('soals', function (Blueprint $table) {
-            $table->id();
+            $table->id(); 
+            $table->foreignIdFor(Jurusan::class)->constrained()->cascadeOnDelete();
+            $table->string('nama_soal'); 
+            $table->integer('jumlah_soal'); 
+            $table->integer('minimal_benar'); 
+            $table->integer('total_nilai'); 
+            $table->boolean('is_visible')->default(true); 
+            $table->double('passing_grade'); 
             $table->timestamps();
         });
     }
