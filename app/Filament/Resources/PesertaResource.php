@@ -58,7 +58,6 @@ class PesertaResource extends Resource
     {
         return [
             'index' => Pages\ListPesertas::route('/'),
-            'edit' => Pages\EditPeserta::route('/{record}/edit'),
         ];
     }
 }
