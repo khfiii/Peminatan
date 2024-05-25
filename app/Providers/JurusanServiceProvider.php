@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use App\Services\Jurusan;
+use App\Models\Jurusan as JurusanModel;
+use App\Observers\JurusanObserver;
 use Illuminate\Support\ServiceProvider;
 
 class JurusanServiceProvider extends ServiceProvider
@@ -20,6 +22,8 @@ class JurusanServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        if(app()->isLocal()){
+            JurusanModel::observe(JurusanObserver::class); 
+        } 
     }
 }
