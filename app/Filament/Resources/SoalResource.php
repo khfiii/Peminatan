@@ -13,6 +13,7 @@ use Filament\Tables\Actions\Action;
 use Filament\Support\Enums\MaxWidth;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Actions\ActionGroup;
+use Filament\Tables\Columns\ToggleColumn;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\SoalResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -54,15 +55,17 @@ class SoalResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('nama_soal')
-                ->label('Soal'), 
+                ->label('Soal')
+                ->sortable(), 
                 TextColumn::make('jurusan.nama_jurusan')
-                ->label('Jurusan')
-                ->badge(), 
+                ->label('Jurusan'),  
                 TextColumn::make('jumlah_soal')
                 ->label('Jumlah')
                 ->formatStateUsing(function(string $state) : string{
                     return "{$state} soal";
-                })
+                }), 
+                ToggleColumn::make('is_visible')
+                ->label('Status')
             ])
             ->filters([
                 //
@@ -103,5 +106,10 @@ class SoalResource extends Resource
             'index' => Pages\ListSoals::route('/'),
             'pertanyaan' => Pages\Pertanyaan::route('pertanyaan/{record}')
         ];
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()->with('pertanyaans');
     }
 }

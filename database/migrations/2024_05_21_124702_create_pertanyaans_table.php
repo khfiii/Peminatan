@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use App\Models\Soal;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -13,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('pertanyaans', function (Blueprint $table) {
             $table->id();
-            $table->foreignUuid('soal_id')->constrained()->cascadeOnDelete(); 
+            $table->foreignIdFor(Soal::class)->constrained()->cascadeOnDelete(); 
             $table->text('teks_pertanyaan'); 
             $table->boolean('jawaban'); 
             $table->timestamps();

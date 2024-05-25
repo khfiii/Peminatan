@@ -15,8 +15,11 @@ use Filament\Forms\Components\Textarea;
 use App\Filament\Resources\SoalResource;
 use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
+use Filament\Actions\Contracts\HasActions;
 use App\Models\Pertanyaan as ModelPertanyaan;
+use Filament\Actions\Action;
 use Filament\Forms\Concerns\InteractsWithForms;
+use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Resources\Pages\Concerns\InteractsWithRecord;
 
 class Pertanyaan extends Page implements HasForms
@@ -25,6 +28,10 @@ class Pertanyaan extends Page implements HasForms
     protected static string $resource = SoalResource::class;
 
     public ?array $data = [];
+
+    public int $loop = 5; 
+
+    public bool $active = false; 
 
     public int $jumlah_soal; 
     
@@ -69,6 +76,8 @@ class Pertanyaan extends Page implements HasForms
             ->title('Soal melebihi batas jumlah maksimal')
             ->danger()
             ->send();
+
+            $this->resetForm();
            return; 
         }
 
@@ -76,7 +85,7 @@ class Pertanyaan extends Page implements HasForms
        ModelPertanyaan::create($data);
        $this->resetForm(); 
        $this->sendSuccesNotification(); 
-       $this->dispatch('pertanyaan-dibuat'); 
+       $this->dispatch('refresh'); 
     }
 
 
@@ -91,13 +100,28 @@ class Pertanyaan extends Page implements HasForms
         $this->form->fill(); 
     }
 
-    public function checkMaximumSoal(): bool
-    {
-        return $this->listSoal()->count() >= $this->jumlah_soal; 
+    public function checkMaximumSoal(): bool{
+        return $this->record->pertanyaans->count() >= $this->jumlah_soal; 
     }
 
-    #[On('pertanyaan-dibuat')] 
-    public function listSoal(){
-        return ModelPertanyaan::where('soal_id', $this->record->getKey())->get(); 
-    }    
+    #[On('refresh')] 
+    public function getListSoal(){
+        return $this->record->pertanyaans; 
+    }
+
+    public function hapusPertanyaan(ModelPertanyaan $pertanyaan) {
+        $pertanyaan->delete(); 
+        Notification::make()
+        ->title('Soal berhasil dihapus')
+        ->success()
+        ->send();
+       $this->dispatch('refresh'); 
+    }
+
+    public function showMore(){
+        $this->loop = $this->record->pertanyaans->count(); 
+        $this->active = true; 
+    }
+
+
 }
