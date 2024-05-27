@@ -7,28 +7,29 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Peserta extends Model
+class Peserta extends Authenticatable
 {
     use HasFactory;
 
     protected $fillable = [
-        'nama', 
-        'tanggal_lahir', 
-        'phone', 
-        'email', 
-        'sekolah_asal', 
+        'nama_peserta',
+        'tanggal_lahir',
+        'nomor_telepon',
+        'email',
+        'sekolah_asal',
         'tahun_lulus'
-    ]; 
+    ];
 
     public function jawaban(): HasOne
     {
-        return $this->hasOne(Jawaban::class); 
+        return $this->hasOne(Jawaban::class);
     }
 
     public function nilai(): BelongsToMany
     {
-        return $this->belongsToMany(Soal::class); 
+        return $this->belongsToMany(Soal::class);
     }
 
 

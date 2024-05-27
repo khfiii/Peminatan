@@ -14,16 +14,16 @@ class Soal extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['jurusan_id', 'nama_soal', 'jumlah_soal', 'minimal_benar', 'total_nilai', 'passing_grade'];
+    protected $fillable = ['jurusan_id', 'nama_soal', 'jumlah_soal', 'minimal_benar', 'total_nilai', 'passing_grade', 'is_visible'];
 
     public function jurusan():BelongsTo
     {
-        return $this->belongsTo(Jurusan::class, 'jurusan_id'); 
+        return $this->belongsTo(Jurusan::class, 'jurusan_id');
     }
 
     public function pertanyaans(): HasMany
     {
-        return $this->hasMany(Pertanyaan::class);  
+        return $this->hasMany(Pertanyaan::class);
     }
 
 

@@ -1,0 +1,27 @@
+<div class="ps-4 space-y-4 text-center sm:grid sm:grid-cols-4 sm:text-start sm:mx-16">
+    <div class="sm:col-span-2 flex flex-col gap-4 sm:max-w-md sm:-space-y-2 sm:justify-center">
+        <div class="heading col-span-3">
+            <h2 class="font-bold text-lg uppercase text-coklat sm:text-2xl">Temukan jurusan yang cocok sesuai minat dan
+                bakatmu
+            </h2>
+        </div>
+
+        <div class="subheading sm:px-0 px-4 col-span-3">
+            <p class="text-coklat sm:font-medium">Melalui panduan dan tes peminatan ini temukan minat dan bakat yang
+                sesuai dengan
+                jurusan yang kamu pilih</p>
+        </div>
+
+        <div class="action sm:px-0 px-4 py-2 col-span-3">
+            <div class="btn bg-kuning text-coklat">Mulai Sekarang</div>
+        </div>
+    </div>
+
+    <div class="sm:col-span-2 ilustration">
+        <div class="flex justify-center">
+            <div class="w-52 sm:w-[20rem] rounded">
+                <img src="{{ Vite::asset('resources/images/teacher.png') }}" alt="" class="-mt-6">
+            </div>
+        </div>
+    </div>
+</div>

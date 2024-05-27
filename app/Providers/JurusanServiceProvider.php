@@ -14,7 +14,7 @@ class JurusanServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->bind('Jurusan', Jurusan::class); 
+        $this->app->bind('Jurusan', Jurusan::class);
     }
 
     /**
@@ -23,7 +23,7 @@ class JurusanServiceProvider extends ServiceProvider
     public function boot(): void
     {
         if(app()->isLocal()){
-            JurusanModel::observe(JurusanObserver::class); 
-        } 
+            JurusanModel::observe(JurusanObserver::class);
+        }
     }
 }
