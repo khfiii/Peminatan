@@ -1,3 +1,4 @@
+@if ($soals->isNotEmpty())
 <div id="peminatan" class="py-8 flex justify-center">
     <div class="w-full text-center flex flex-col items-center justify-center space-y-4">
         <div class="heading">
@@ -28,3 +29,16 @@
         </div>
     </div>
 </div>
+@else
+<div class="mt-32 flex w-full flex-wrap items-center justify-center gap-16">
+  <div class="grid w-60 gap-4">
+    <img src="{{ Vite::asset('resources/images/empty.svg') }}" alt="" class="w-52 sm:w-[20rem] rounded">
+    <div>
+      <h2 class="pb-1 text-center text-base font-semibold leading-relaxed text-coklat">Yah, Belum ada test peminatan</h2>
+      <p class="pb-4 text-center text-sm font-normal leading-snug text-coklat">Soal sedang dibuat..</p>
+      <p></p>
+    </div>
+  </div>
+</div>
+
+@endif

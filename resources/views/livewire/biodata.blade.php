@@ -4,12 +4,13 @@
 				rounded-md shadow-md mt-4">
         <h1 class="text-xl font-bold mb-6
 				text-kuning text-center">
-            Hi Selamat Datang
+            Hallo 🎃 <br>
+            Selamat Datang
         </h1>
         <form wire:submit="simpanPeserta" class="space-y-4">
             <label class="form-control w-full max-w-xs">
                 <div class="label">
-                    <span class="label-text">Nama Lengkap</span>
+                    <span class="label-text text-coklat">Nama Lengkap</span>
                 </div>
                 <input type="text" wire:model="nama_peserta" placeholder="Masukan nama lengkap"
                     class="input input-bordered w-full max-w-xs" />
@@ -19,7 +20,7 @@
             </label>
             <label class="form-control w-full max-w-xs">
                 <div class="label">
-                    <span class="label-text">Tanggal Lahir</span>
+                    <span class="label-text text-coklat">Tanggal Lahir</span>
                 </div>
                 <input type="date" wire:model="tanggal_lahir" placeholder="Masukan nama lengkap"
                     class="input input-bordered w-full max-w-xs" />
@@ -29,7 +30,7 @@
             </label>
             <label class="form-control w-full max-w-xs">
                 <div class="label">
-                    <span class="label-text">Nomor Telepon</span>
+                    <span class="label-text text-coklat">Nomor Telepon</span>
                 </div>
                 <input wire:model="nomor_telepon" type="number" placeholder="Masukan nomor telepon"
                     class="input input-bordered w-full max-w-xs" />
@@ -39,7 +40,7 @@
             </label>
             <label class="form-control w-full max-w-xs">
                 <div class="label">
-                    <span class="label-text">Email</span>
+                    <span class="label-text text-coklat">Email</span>
                 </div>
                 <input wire:model="email" type="email" placeholder="Masukan email"
                     class="input input-bordered w-full max-w-xs" />
@@ -49,7 +50,7 @@
             </label>
             <label class="form-control w-full max-w-xs">
                 <div class="label">
-                    <span class="label-text">Sekolah Asal</span>
+                    <span class="label-text text-coklat">Sekolah Asal</span>
                 </div>
                 <input wire:model="sekolah_asal" type="text" placeholder="Masukan sekolah"
                     class="input input-bordered w-full max-w-xs" />
@@ -59,7 +60,7 @@
             </label>
             <label class="form-control w-full max-w-xs">
                 <div class="label">
-                    <span class="label-text">Tanggal Lulus</span>
+                    <span class="label-text text-coklat">Tanggal Lulus</span>
                 </div>
                 <input wire:model="tahun_lulus" type="date" placeholder="Masukan tahun lulus"
                     class="input input-bordered w-full max-w-xs" />

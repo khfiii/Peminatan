@@ -1,4 +1,4 @@
-<div class="sm:mx-20 sm:py-4" x-data="{ open: false }">
+<div class="sm:mx-20 sm:py-4" x-data="{ open: false }" x-init="open">
     <div x-show="open" class="fixed h-screen bg-abu w-full right-0 top-0 bottom-0 debug"
         x-transition:enter="transition ease-out duration-300" x-transition:enter-start="-translate-x-full"
         x-transition:enter-end="opacity-100 translate-x-0" x-transition:leave="transition ease-in duration-300"
@@ -51,7 +51,7 @@
             </div>
         </div>
 
-        <div class="inline-flex items-center gap-10" x-data="{ active: null }">
+        <div class="inline-flex items-center gap-10" x-data="{ active: 1 }" x-init="active">
             <a href="#"
                 class="hover:text-kuning hover:underline hover:underline-offset-[7px] focus:underline-offset-[7px]"
                 @click="active=1" :class="active == 1 ? 'text-kuning underline underline-offset-[7px]' : ''">Beranda</a>

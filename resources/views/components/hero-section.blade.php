@@ -13,7 +13,7 @@
         </div>
 
         <div class="action sm:px-0 px-4 py-2 col-span-3">
-            <div class="btn bg-kuning text-coklat">Mulai Sekarang</div>
+            <a href="#peminatan" class="btn bg-kuning text-coklat">Mulai Sekarang</a>
         </div>
     </div>
 

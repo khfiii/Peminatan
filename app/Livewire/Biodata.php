@@ -20,6 +20,7 @@ class Biodata extends Component
     public $tanggal_lahir;
 
     #[Validate('required', message:'Nomor telepon wajib diisi')]
+    #[Validate('min:5', message:'Masukan nomor telepon yang sesuai')]
 
     public $nomor_telepon;
 
