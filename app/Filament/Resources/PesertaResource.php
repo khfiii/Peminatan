@@ -40,12 +40,14 @@ class PesertaResource extends Resource
                 TextColumn::make('email')
                 ->searchable()
                 ->badge(),
+                TextColumn::make('sekolah_asal')
+                ->searchable()
             ])
             ->filters([
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                // Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
