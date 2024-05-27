@@ -2,11 +2,13 @@
 
 namespace App\Livewire;
 
+use App\Mail\SayThank;
 use App\Models\Jawaban;
 use App\Models\Peserta;
 use Livewire\Component;
 use App\Models\Soal as SoalModel;
 use Livewire\Attributes\Validate;
+use Illuminate\Support\Facades\Mail;
 
 class Soal extends Component
 {
@@ -81,7 +83,6 @@ class Soal extends Component
 
         $total_nilai = $this->total_nilai;
         $user_id = $this->peserta->getKey();
-        $passed = $this->passed;
         $soal_id = $this->soal->getKey();
 
         $jawaban = Jawaban::create([
@@ -90,6 +91,11 @@ class Soal extends Component
             'soal_id' => $soal_id,
             'nilai_peserta' => $total_nilai
         ]);
+
+
+        Mail::to($jawaban->peserta)->send(new SayThank($jawaban)); 
+
+        
 
         return redirect()->route('result', ['jawaban'=> $jawaban]);
     }

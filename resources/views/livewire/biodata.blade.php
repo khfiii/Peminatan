@@ -68,19 +68,13 @@
                     <span class="text-red-600">{{ $message }}</span>
                 @enderror
             </label>
-            <button type="submit" class="bg-kuning text-white px-4 py-2
+            <button wire:loading.remove type="submit" class="bg-kuning text-white px-4 py-2
 					rounded-md mt-8">
                 Selanjutnya
             </button>
+            <div wire:loading>  
+            <span class="loading loading-dots loading-lg"></span>
+         </div>
         </form>
-
-        {{-- <div id="result" class="mt-8 hidden">
-            <h2 class="text-2xl font-bold mb-4 text-center">
-                ???? Quiz Result
-            </h2>
-            <p id="score" class="text-lg font-semibold mb-2 text-center">
-            </p>
-            <p id="feedback" class="text-gray-700 text-center"></p>
-        </div> --}}
     </div>
 </div>

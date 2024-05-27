@@ -5,7 +5,8 @@
       <form wire:submit="create">
         {{ $this->form }}
 
-        <button type="submit" class="text-sm font-semibold bg-purple-700 p-2 rounded-md text-gray-900 mt-3">Buat Soal</button>
+        <button wire:loading.remove type="submit" class="text-sm font-semibold bg-purple-700 p-2 rounded-md text-gray-900 mt-3">Buat Soal</button>
+        <span class="mt-2" wire:loading>Tunggu sebentar ya..</span>
       </form>
 
     </div>

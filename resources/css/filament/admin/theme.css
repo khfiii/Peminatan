@@ -5,3 +5,7 @@
 .debug{
     @apply border border-red-500; 
 }
+
+.bg-kuning{
+    @apply bg-yellow-400
+}

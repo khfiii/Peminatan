@@ -22,4 +22,8 @@ Route::middleware(FinishTest::class)->group(function(){
    Route::get('soal/result/{jawaban}', Result::class )->name('result');
 });
 
+Route::get('test', function(){
+   return view('mail.thank');
+}); 
+
 

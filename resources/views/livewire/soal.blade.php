@@ -41,10 +41,14 @@
                 </div>
             @enderror
 
-            <button type="submit"
+            <button type="submit" wire:loading.remove
                 class="{{ SetColor::jurusan($soal->jurusan->nama_jurusan) }} text-white px-4 py-2 rounded-md mt-8">
                 Selesai
             </button>
+
+            <div wire:loading class="inline-flex items-center">
+                <span class="loading loading-dots loading-lg"></span>
+            </div>
         </form>
 
         <div id="result" class="mt-8 hidden">
