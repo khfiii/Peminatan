@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
@@ -11,9 +11,9 @@
 
 <body>
 
-   <div class="">
-   {{ $slot }}
-   </div>
+    <div class="">
+        {{ $slot }}
+    </div>
 
     @livewireScriptConfig
 </body>

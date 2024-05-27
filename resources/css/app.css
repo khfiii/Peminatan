@@ -1,3 +1,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.debug {
+    @apply border border-red-700;
+}
+
+.bg-rpl {
+    @apply bg-[#DE4537];
+}
+
+.bg-boga {
+    @apply bg-[#2E9CE1];
+}
+
+.bg-perhotelan {
+    @apply bg-[#DDBA38];
+}
+
+.bg-musik {
+    @apply bg-[#8259A1];
+}
+
+.bg-wisata {
+    @apply bg-[#896B65];
+}
+
+.bg-kecantikan {
+    @apply bg-[#C10925];
+}
+
+.bg-busana {
+    @apply bg-[#009755];
+}
