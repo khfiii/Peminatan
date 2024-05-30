@@ -8,7 +8,7 @@ Web Tes Peminatan SMK merupakan platform yang dirancang untuk membantu siswa dal
 Clone github repository
 
 ```bash
-  https://github.com/khfiii/Test-Peminatan-SMK.git
+  https://github.com/khfiii/Peminatan.git
 ```
 
 
