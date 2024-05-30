@@ -11,11 +11,11 @@ class Pertanyaan extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['soal_id', 'teks_pertanyaan', 'jawaban']; 
+    protected $fillable = ['soal_id', 'teks_pertanyaan', 'jawaban'];
 
     public function soal(): BelongsTo
     {
-        return $this->belongsTo(Soal::class); 
+        return $this->belongsTo(Soal::class);
     }
 
 

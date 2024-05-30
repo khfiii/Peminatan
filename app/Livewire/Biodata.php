@@ -20,12 +20,15 @@ class Biodata extends Component
     public $tanggal_lahir;
 
     #[Validate('required', message:'Nomor telepon wajib diisi')]
-    #[Validate('min:5', message:'Masukan nomor telepon yang sesuai')]
+    #[Validate('min:10', message:'Masukan nomor telepon yang sesuai')]
 
     public $nomor_telepon;
 
     #[Validate('required', message:'Email wajib diisi')]
     #[Validate('email', message:'Format email tidak sesuai')]
+    #[Validate('unique:pesertas', message:'Email sudah terdaftar')]
+    #[Validate('ends_with:gmail.com', message:'Format email yang kamu masukan tidak sesuai')]
+
 
     public $email;
 

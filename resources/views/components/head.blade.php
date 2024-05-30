@@ -1,5 +1,5 @@
 <div class="sm:mx-20 sm:py-4" x-data="{ open: false }" x-init="open">
-    <div x-show="open" class="fixed h-screen bg-abu w-full right-0 top-0 bottom-0 debug"
+    <div x-show="open" class="fixed z-10 h-screen bg-abu w-full right-0 top-0 bottom-0"
         x-transition:enter="transition ease-out duration-300" x-transition:enter-start="-translate-x-full"
         x-transition:enter-end="opacity-100 translate-x-0" x-transition:leave="transition ease-in duration-300"
         x-transition:leave-start="opacity-100" x-transition:leave-end="-translate-x-full">
@@ -45,9 +45,9 @@
     </div>
     <div class="invisible sm:visible flex justify-between">
         <div class="inline-flex items-center gap-1">
-            <img src="{{ Vite::asset('resources/images/logo.png') }}" class="w-12" alt="">
+            <img src="{{ Vite::asset('resources/images/logo.png') }}" class="w-24" alt="">
             <div class="w-20">
-                <h4 class="uppercase text-coklat font-bold text-wrap leading-[15px]">smkn 4 banjarmasin</h4>
+                <h4 class="uppercase text-coklat font-bold text-wrap leading-[20px]">smkn 4 banjarmasin</h4>
             </div>
         </div>
 

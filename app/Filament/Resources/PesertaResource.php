@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\PesertaResource\Pages;
 use App\Filament\Resources\PesertaResource\RelationManagers;
+use App\Models\Jawaban;
 use App\Models\Peserta;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -11,12 +12,13 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Filament\Tables\Grouping\Group;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class PesertaResource extends Resource
 {
-    protected static ?string $model = Peserta::class;
+    protected static ?string $model = Jawaban::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-user-group';
 
@@ -32,16 +34,28 @@ class PesertaResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('nama_peserta')
+                TextColumn::make('peserta.nama_peserta')
                 ->searchable(),
-                TextColumn::make('tanggal_lahir')
-                ->date('j F Y')
+                TextColumn::make('soal.jurusan.nama_jurusan')
+                ->badge()
+                ->sortable()
                 ->searchable(),
-                TextColumn::make('email')
+                TextColumn::make('peserta.email')
+                ->label('Email')
                 ->searchable()
                 ->badge(),
-                TextColumn::make('sekolah_asal')
+                TextColumn::make('peserta.sekolah_asal')
+                ->label('Sekolah Asal')
+                ->searchable(),
+                TextColumn::make('nilai_peserta')
                 ->searchable()
+                ->badge(),
+            ])
+            ->groups([
+                Group::make('soal.jurusan.nama_jurusan')
+                ->label('Jurusan'),
+                Group::make('peserta.sekolah_asal')
+                ->label('Sekolah Asal'),
             ])
             ->filters([
                 //
@@ -70,4 +84,9 @@ class PesertaResource extends Resource
             'index' => Pages\ListPesertas::route('/'),
         ];
     }
+
+    public static function getEloquentQuery(): Builder
+{
+    return parent::getEloquentQuery()->with(['peserta', 'soal']);
+}
 }

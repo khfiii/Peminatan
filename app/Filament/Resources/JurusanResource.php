@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use App\Facades\Jurusan as FacadesJurusan;
 use Filament\Forms;
 use Filament\Tables;
 use App\Models\Jurusan;
@@ -12,7 +13,6 @@ use Filament\Forms\Components;
 use Filament\Resources\Resource;
 use Filament\Support\Enums\MaxWidth;
 use Filament\Tables\Columns\TextColumn;
-use App\Facades\Jurusan as JurusanFacade;
 use App\Filament\Resources\JurusanResource\Pages;
 
 class JurusanResource extends Resource
@@ -29,11 +29,11 @@ class JurusanResource extends Resource
                 ->required()
                 ->live(onBlur:true)
                 ->afterStateUpdated(function(Set $set, ?string $state){
-                    $kode_jurusan = JurusanFacade::generateCode($state); 
-                    $set('kode_jurusan', $kode_jurusan); 
-                }),     
+                    $kode_jurusan = FacadesJurusan::generateCode($state);
+                    $set('kode_jurusan', $kode_jurusan);
+                }),
                 Components\TextInput::make('kode_jurusan')
-                ->readOnly(), 
+                ->readOnly(),
             ])
             ->columns('full');
     }
@@ -43,7 +43,7 @@ class JurusanResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('kode_jurusan')
-                ->searchable(), 
+                ->searchable(),
                 TextColumn::make('nama_jurusan')
                 ->searchable()
             ])

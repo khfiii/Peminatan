@@ -81,21 +81,22 @@ class Soal extends Component
         $this->countScore();
         $this->checkPassingGrade();
 
+        $peserta = $this->peserta;
         $total_nilai = $this->total_nilai;
-        $user_id = $this->peserta->getKey();
+        $user_id = $peserta->getKey();
         $soal_id = $this->soal->getKey();
 
-        $jawaban = Jawaban::create([
+        $jawaban = Jawaban::Create(
+        [
             'peserta_id' => $user_id,
-            'status_jawaban' => true,
             'soal_id' => $soal_id,
+            'status_jawaban' => true,
             'nilai_peserta' => $total_nilai
         ]);
 
+        // Mail::to($jawaban->peserta)->send(new SayThank($jawaban));
 
-        Mail::to($jawaban->peserta)->send(new SayThank($jawaban)); 
 
-        
 
         return redirect()->route('result', ['jawaban'=> $jawaban]);
     }

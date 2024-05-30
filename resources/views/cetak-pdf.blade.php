@@ -80,23 +80,24 @@
         </thead>
         <tbody>
             <tr>
-                {{-- @php
+                @php
                     $cekLulus = $jawaban->nilai_peserta >= $jawaban->soal->passing_grade ? 'MAMPU' : 'BELUM MAMPU';
-                @endphp --}}
-                <td>Ashabul Kahfi</td>
-                <td>12</td>
-                <td>Rekayasa Perangkat Lunak</td>
-                <td>50</td>
-                <td><span class="gagal">Lulus</span>
+                @endphp
+                <td>{{ $jawaban->peserta->nama_peserta }}</td>
+                <td>{{ $jawaban->id }}</td>
+                <td>{{ $jawaban->soal->jurusan->nama_jurusan }}</td>
+                <td>{{ $jawaban->nilai_peserta }}</td>
+                <td><span
+                        class="{{ $jawaban->nilai_peserta >= $jawaban->soal->passing_grade ? 'MAMPU' : 'BELUM MAMPU' }}">{{ $cekLulus }}</span>
                 </td>
             </tr>
         </tbody>
     </table>
 
-    <p>Berdasarkan hasil test peminatan, peserta Ashabul Kahfi dinyatakan <b>TIDAK MAMPU</b>
+    <p>Berdasarkan hasil test peminatan, peserta {{ $jawaban->peserta->nama_peserta }} dinyatakan {{ $cekLulus }}
         dengan nilai
-        50 pada test rekayasa perangkat lunak.</p>
-    <p>Jika peserta berkenan, silahkan mencoba test peminatan jurusan lain</p>
+        {{ $jawaban->nilai_peserta }} pada
+        {{ $jawaban->soal->nama_soal }}.</p>
 
     <p>Peserta diharapkan untuk mencetak laporan ini dan<b> WAJIB MEMBAWA KETIKA PROSES WAWANCARA DI SEKOLAH </b></p>
     <p>Hormat Kami,</p>

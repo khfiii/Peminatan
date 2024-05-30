@@ -34,3 +34,31 @@
 .bg-busana {
     @apply bg-[#009755];
 }
+
+.text-rpl {
+    @apply text-[#DE4537];
+}
+
+.text-boga {
+    @apply text-[#2E9CE1];
+}
+
+.text-perhotelan {
+    @apply text-[#DDBA38];
+}
+
+.text-musik {
+    @apply text-[#8259A1];
+}
+
+.text-wisata {
+    @apply text-[#896B65];
+}
+
+.text-kecantikan {
+    @apply text-[#C10925];
+}
+
+.text-busana {
+    @apply text-[#009755];
+}

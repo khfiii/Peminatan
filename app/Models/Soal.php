@@ -26,6 +26,11 @@ class Soal extends Model
         return $this->hasMany(Pertanyaan::class);
     }
 
+    public function jawabans(): HasMany
+    {
+        return $this->hasMany(Jawaban::class);
+    }
+
 
 
 }

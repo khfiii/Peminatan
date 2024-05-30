@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
+use App\Facades\Jurusan as FacadesJurusan;
 use App\Services\Jurusan;
-use App\Models\Jurusan as JurusanModel;
 use App\Observers\JurusanObserver;
+use Illuminate\Foundation\AliasLoader;
+use App\Models\Jurusan as JurusanModel;
 use Illuminate\Support\ServiceProvider;
 
 class JurusanServiceProvider extends ServiceProvider
@@ -15,6 +17,9 @@ class JurusanServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->bind('Jurusan', Jurusan::class);
+
+        $loader = AliasLoader::getInstance();
+        $loader->alias('JurusanFacade', FacadesJurusan::class);
     }
 
     /**
