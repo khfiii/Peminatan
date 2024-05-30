@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Laporan Kelulusan Test Peminatan</title>
+    <title>Laporan Test Peminatan</title>
     <style>
         body {
             font-family: sans-serif;
