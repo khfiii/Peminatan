@@ -43,11 +43,13 @@
         }
 
         .lulus {
-            color: #085A35
+            color: #2eb075;
+            font-weight: bold;
         }
 
         .gagal {
-            color: red
+            color: red;
+            font-weight: bold;
         }
 
         /* Responsive Design for Mobile Devices */
@@ -64,7 +66,7 @@
 </head>
 
 <body>
-    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center">
+    <div align="center">
         <h3>Laporan Test Peminatan</h3>
     </div>
 
@@ -82,24 +84,33 @@
             <tr>
                 @php
                     $cekLulus = $jawaban->nilai_peserta >= $jawaban->soal->passing_grade ? 'MAMPU' : 'BELUM MAMPU';
+                    $styleForPassed = $jawaban->nilai_peserta >= $jawaban->soal->passing_grade ? 'lulus' : 'gagal';
+                    $textLanjutan =
+                        $jawaban->nilai_peserta >= $jawaban->soal->passing_grade
+                            ? 'Peserta diharapkan untuk mencetak laporan ini dan <b> WAJIB MEMBAWA KETIKA PROSES WAWANCARA DI SEKOLAH </b>'
+                            : 'Peserta silahkan mencoba test peminatan Konsentrasi Keahlian Lain <small><a href="' .
+                                route('home') .
+                                '"> Klik link disini</a> </small>';
+                    $link = route('home');
                 @endphp
                 <td>{{ $jawaban->peserta->nama_peserta }}</td>
                 <td>{{ $jawaban->id }}</td>
                 <td>{{ $jawaban->soal->jurusan->nama_jurusan }}</td>
                 <td>{{ $jawaban->nilai_peserta }}</td>
-                <td><span
-                        class="{{ $jawaban->nilai_peserta >= $jawaban->soal->passing_grade ? 'MAMPU' : 'BELUM MAMPU' }}">{{ $cekLulus }}</span>
-                </td>
+                <td><span class="{{ $styleForPassed }}">{{ $cekLulus }}</span></td>
             </tr>
         </tbody>
     </table>
 
-    <p>Berdasarkan hasil test peminatan, peserta {{ $jawaban->peserta->nama_peserta }} dinyatakan {{ $cekLulus }}
-        dengan nilai
-        {{ $jawaban->nilai_peserta }} pada
-        {{ $jawaban->soal->nama_soal }}.</p>
+    <p>Berdasarkan hasil {{ $jawaban->soal->nama_soal }}, <u>{{ $jawaban->peserta->nama_peserta }}</u> memperoleh nilai
+        {{ $jawaban->nilai_peserta }} dan dinyatakan
+        <b>{{ $cekLulus }}</b> untuk memilih Konsentrasi Keahlian {{ $jawaban->soal->jurusan->nama_jurusan }}
+    </p>
 
-    <p>Peserta diharapkan untuk mencetak laporan ini dan<b> WAJIB MEMBAWA KETIKA PROSES WAWANCARA DI SEKOLAH </b></p>
+    <div>{!! $textLanjutan !!}</div>
+    <small>
+
+    </small>
     <p>Hormat Kami,</p>
 
     <p>Panitia Test Peminatan</p>
