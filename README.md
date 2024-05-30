@@ -1,7 +1,7 @@
-
+![alt text](https://github.com/khfiii/Peminatan/blob/main/Screenshot%202024-05-30%20233121.png)
 # Test Peminatan SMK
 
-Web Tes Peminatan SMK merupakan platform yang dirancang untuk membantu siswa dalam menentukan pilihan jurusan atau peminatan yang sesuai dengan minat dan potensi mereka di tingkat Sekolah Menengah Kejuruan (SMK). Aplikasi ini menyediakan serangkaian tes dan kuis yang mengarah pada identifikasi minat dan potensi siswa untuk kemudian memberikan rekomendasi jurusan atau peminatan yang cocok.
+Web Tes Peminatan SMK 4 merupakan platform yang dirancang untuk membantu siswa dalam menentukan pilihan jurusan atau peminatan yang sesuai dengan minat dan potensi mereka di tingkat Sekolah Menengah Kejuruan (SMK). Aplikasi ini menyediakan serangkaian tes dan kuis yang mengarah pada identifikasi minat dan potensi siswa untuk kemudian memberikan rekomendasi jurusan atau peminatan yang cocok.
 
 ## Installation
 
