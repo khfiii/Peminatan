@@ -40,6 +40,9 @@ class Biodata extends Component
     #[Validate('required', message:'Tahun lulus wajib diisi')]
 
     public $tahun_lulus;
+
+    #[Validate('required', message:'NIS wajib diisi')]
+    public $nis;
     public function mount(Soal $soal)
     {
         $this->soal = $soal;

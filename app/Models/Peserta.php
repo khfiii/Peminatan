@@ -17,6 +17,7 @@ class Peserta extends Authenticatable
     protected $fillable = [
         'nama_peserta',
         'tanggal_lahir',
+        'nis',
         'nomor_telepon',
         'email',
         'completed_test',

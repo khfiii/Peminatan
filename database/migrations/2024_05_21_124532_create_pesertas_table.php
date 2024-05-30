@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('pesertas', function (Blueprint $table) {
             $table->id();
             $table->text('nama_peserta');
+            $table->text('nis');
             $table->date('tanggal_lahir');
             $table->string('nomor_telepon');
             $table->json('completed_test')->nullable();
