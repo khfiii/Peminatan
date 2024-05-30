@@ -35,11 +35,7 @@ Bundle asset
 ```bash
   npm run dev
 ```
-Bundle 
 
-```bash
-  npm run dev
-```
 Jalankan projek
 
 ```bash
