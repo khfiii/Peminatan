@@ -31,18 +31,18 @@ class SoalResource extends Resource
             ->schema([
                 Components\Select::make('jurusan_id')
                 ->required()
-                ->relationship(name: 'jurusan', titleAttribute: 'nama_jurusan'), 
+                ->relationship(name: 'jurusan', titleAttribute: 'nama_jurusan'),
                 Components\TextInput::make('nama_soal')
-                ->required(), 
+                ->required(),
                 Components\TextInput::make('jumlah_soal')
                 ->required()
-                ->numeric(), 
+                ->numeric(),
                 Components\TextInput::make('minimal_benar')
                 ->required()
-                ->numeric(), 
+                ->numeric(),
                 Components\TextInput::make('total_nilai')
                 ->required()
-                ->numeric(), 
+                ->numeric(),
                 Components\TextInput::make('passing_grade')
                 ->required()
                 ->numeric()
@@ -56,14 +56,14 @@ class SoalResource extends Resource
             ->columns([
                 TextColumn::make('nama_soal')
                 ->label('Soal')
-                ->sortable(), 
+                ->sortable(),
                 TextColumn::make('jurusan.nama_jurusan')
-                ->label('Jurusan'),  
+                ->label('Jurusan'),
                 TextColumn::make('jumlah_soal')
                 ->label('Jumlah')
                 ->formatStateUsing(function(string $state) : string{
                     return "{$state} soal";
-                }), 
+                }),
                 ToggleColumn::make('is_visible')
                 ->label('Status')
             ])
@@ -77,7 +77,7 @@ class SoalResource extends Resource
                     ->icon('heroicon-o-question-mark-circle')
                     ->color('info')
                     ->label('Buat Pertanyaan')
-                    ->url(fn( Soal $record ) => route('filament.admin.resources.soals.pertanyaan', ['record' => $record])), 
+                    ->url(fn( Soal $record ) => route('filament.admin.resources.soals.pertanyaan', ['record' => $record])),
                     Tables\Actions\EditAction::make()
                     ->modalWidth(MaxWidth::Large)
                     ->color('primary'),

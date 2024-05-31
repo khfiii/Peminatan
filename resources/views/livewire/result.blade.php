@@ -54,7 +54,7 @@
                         <h5 class="mb-2 text-2xl font-bold tracking-tight text-coklat ">
                             {{ $jawaban->peserta->nama_peserta }}</h5>
                     </a>
-                    <p class="mb-3 font-normal text-gray-700">Kamu sepertinya tidak cocok untuk berada di jurusan
+                    <p class="mb-3 font-normal text-gray-700">Kamu sepertinya belum cocok untuk berada di jurusan
                         {{ $jawaban->soal->jurusan->nama_jurusan }}</p>
                     <div class="inline-flex items-center justify-center gap-2">
 
