@@ -12,6 +12,7 @@ use App\Http\Controllers\FinishController;
 use App\Http\Middleware\UnregisterPeserta;
 use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
 use App\Http\Middleware\CheckRegisterPeserta;
+use App\Models\User;
 
 Route::get("/", Main::class)->name('home');
 Route::get("pertanyaan/{soal}/biodata", Biodata::class)->name('biodata')
@@ -35,9 +36,5 @@ Route::get('download-pdf/{jawaban}', function(Jawaban $jawaban){
        }
 
 })->name('download-pdf');
-
-Route::get('test', function(){
-    return view('test');
-});
 
 
