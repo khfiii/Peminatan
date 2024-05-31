@@ -15,7 +15,7 @@ class PesertaOverview extends BaseWidget
         return [
             Stat::make('Peserta', Peserta::count()),
             Stat::make('Jurusan', Jurusan::count()),
-            Stat::make('Aktif Soal', Soal::where('is_visible', true)->count()),
+            Stat::make('Aktif Soal', Soal::where('is_visible', true)->whereHas('pertanyaans')->count()),
         ];
     }
 }
