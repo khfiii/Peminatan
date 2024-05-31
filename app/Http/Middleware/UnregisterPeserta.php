@@ -18,17 +18,25 @@ class UnregisterPeserta
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $peserta = Peserta::findOrFail($request->route()->parameter('peserta')->getKey());
+        $parameterSoal = $request->route()->parameter('soal');
 
-        $soal = Soal::findOrFail($request->route()->parameter('soal')->getKey());
-
-        $jawaban = Jawaban::where('peserta_id', $peserta->id)->first();
-
-        if ($jawaban) {
-            if ($jawaban->soal_id === $soal->id) {
-                return redirect()->route('result', ['jawaban' => $jawaban]);
-            }
+        if(Jawaban::where('soal_id', '=', $parameterSoal->id)->first()){
+            $jawaban = Jawaban::where('soal_id', $parameterSoal->id)->first();
+            return redirect()->route('result', ['jawaban' => $jawaban]);
         }
+
+        // $peserta = Peserta::findOrFail($request->route()->parameter('peserta')->getKey());
+
+        // $soal = Soal::findOrFail($request->route()->parameter('soal')->getKey());
+
+        // $jawaban = Jawaban::where('peserta_id', $peserta->id)->first();
+
+        // if ($jawaban) {
+        //     dd($jawaban);
+        //     if ($jawaban->soal_id === $soal->id) {
+        //         return redirect()->route('result', ['jawaban' => $jawaban]);
+        //     }
+        // }
 
         return $next($request);
     }

@@ -34,20 +34,14 @@
     </div>
     <div class="grid grid-cols-4 p-4 sm:hidden">
         <div class="col-span-full">
-            <button @click="open=true">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M3.75 6.75h16.5M3.75 12H12m-8.25 5.25h16.5" />
-                </svg>
-            </button>
+            <x-heroicon-m-bars-3-bottom-left class="w-6" @click="open=true" />
         </div>
     </div>
-    <div class="invisible sm:visible flex justify-between">
+    <div class="invisible sm:visible flex justify-between sm:mb-10">
         <div class="inline-flex items-center gap-1">
             <img src="{{ Vite::asset('resources/images/logo.png') }}" class="w-24" alt="">
-            <div class="w-20">
-                <h4 class="uppercase text-coklat font-bold text-wrap leading-[20px]">smkn 4 banjarmasin</h4>
+            <div class="w-24">
+                <h4 class="uppercase text-coklat text-2xl font-bold text-wrap leading-[25px]">smkn 4 banjarmasin</h4>
             </div>
         </div>
 

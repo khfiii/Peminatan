@@ -11,8 +11,6 @@
                     minat dan bakat kamu berdasarkan jurusan yang tersedia</p>
             </div>
 
-            {{-- @dd(auth('peserta')->user()) --}}
-
             <div class="grid grid-rows-7 gap-7 sm:grid-cols-4 sm:gap-4 w-full px-6 sm:px-[5rem] py-4">
                 @foreach ($soals as $soal)
                     <div class="inline-flex h-24 items-center p-2 gap-6 rounded-sm border shadow-md">
@@ -24,10 +22,21 @@
                                 {{ $soal->jurusan->nama_jurusan }} <br> <small
                                     class="text-coklat">{{ Str::words($soal->nama_soal, 3, '...') }}</small></p>
 
+                            @php
+                                $checkCompleted = JurusanFacade::checkCompletedTest(auth('peserta')->user(), $soal->id);
+                                // dump($checkCompleted);
+                            @endphp
 
                             <a href="{{ route('biodata', ['soal' => $soal]) }}"
                                 class="btn btn-xs {{ SetColor::jurusan($soal->jurusan->nama_jurusan) }} text-white rounded-md">
-                                <small>Mulai Test</small></a>
+
+                                @if ($checkCompleted)
+                                    <x-heroicon-o-check class="w-3" /> <small>Lihat Hasil</small>
+                                @else
+                                    <x-heroicon-o-pencil class="w-3" /> <small>Mulai Test</small>
+                                @endif
+
+                            </a>
                         </div>
                     </div>
                 @endforeach

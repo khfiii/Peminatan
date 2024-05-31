@@ -1,4 +1,4 @@
-<div class="px-4 space-y-4 text-center sm:grid sm:grid-cols-4 sm:text-start sm:mx-16">
+<div class="px-4 space-y-4 text-center sm:grid sm:grid-cols-4 sm:text-start sm:mx-16 -mt-10 sm:mt-0">
     <div class="sm:col-span-2 flex flex-col gap-4 sm:max-w-md sm:-space-y-2 mt-2">
         <div class="heading col-span-3">
             <h2 class="font-bold text-lg uppercase text-coklat sm:text-2xl">Temukan jurusan yang cocok sesuai

@@ -20,6 +20,7 @@ class Peserta extends Authenticatable
         'nis',
         'nomor_telepon',
         'email',
+        'nisn',
         'completed_test',
         'sekolah_asal',
         'tahun_lulus'

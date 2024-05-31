@@ -22,9 +22,19 @@
                     <div class="label">
                         <span class="label-text text-coklat">NIS</span>
                     </div>
-                    <input type="text" wire:model="nis" placeholder="Masukan NIS"
+                    <input type="number" wire:model="nis" placeholder="Masukan NIS"
                         class="input input-bordered w-full max-w-xs" />
                     @error('nis')
+                        <small class="text-red-600">{{ $message }}</small>
+                    @enderror
+                </label>
+                <label class="form-control w-full max-w-sm">
+                    <div class="label">
+                        <span class="label-text text-coklat">NISN</span>
+                    </div>
+                    <input type="number" wire:model="nisn" placeholder="Masukan NIS"
+                        class="input input-bordered w-full max-w-xs" />
+                    @error('nisn')
                         <small class="text-red-600">{{ $message }}</small>
                     @enderror
                 </label>

@@ -1,8 +1,9 @@
 <?php
 namespace App\Services;
 
-use App\Enums\Jurusan as JurusanEnum;
+use App\Models\Peserta;
 use Illuminate\Support\Facades\Vite;
+use App\Enums\Jurusan as JurusanEnum;
 
 
 class Jurusan
@@ -36,6 +37,18 @@ class Jurusan
 
     public function getAssetFromResources(string $path){
         return Vite::asset($path);
+    }
+
+    public function checkCompletedTest(?Peserta $peserta, int $soal_id){
+       if(is_null($peserta)){
+            return false;
+       }
+
+       if(!$peserta->jawabans->where('soal_id', $soal_id)->count() > 0){
+        return false;
+    }
+
+    return true;
     }
 
 
