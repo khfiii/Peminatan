@@ -80,7 +80,7 @@
         <thead>
             <tr>
                 <th>Nama Peserta</th>
-                <th>Nomor Peserta</th>
+                <th>NISN</th>
                 <th>Peminatan</th>
                 <th>Nilai</th>
                 <th>Status</th>
@@ -100,7 +100,7 @@
                     $link = route('home');
                 @endphp
                 <td>{{ $jawaban->peserta->nama_peserta }}</td>
-                <td>{{ $jawaban->id }}</td>
+                <td>{{ $jawaban->peserta->nisn }}</td>
                 <td>{{ $jawaban->soal->jurusan->nama_jurusan }}</td>
                 <td>{{ $jawaban->nilai_peserta }}</td>
                 <td><span class="{{ $styleForPassed }}">{{ $cekLulus }}</span></td>

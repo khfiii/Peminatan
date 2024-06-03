@@ -7,7 +7,6 @@ import.meta.glob([
 import './bootstrap';
 import './splide';
 
-
-Livewire.start()
+Livewire.start();
 
 
