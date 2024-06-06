@@ -41,7 +41,6 @@
 
                 </div>
             </div>
-
         </div>
     @else
         <div class="flex h-full justify-center items-center p-6">
