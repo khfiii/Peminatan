@@ -1,8 +1,8 @@
-<div class="h-screen w-full">
+<div class="w-full h-screen">
 
     @if ($jawaban->nilai_peserta >= $jawaban->soal->passing_grade)
-        <div class="flex h-full justify-center items-center p-6">
-            <div class="max-w-sm flex flex-col items-center  border border-gray-200 rounded-lg shadow-lg">
+        <div class="flex items-center justify-center h-full p-6">
+            <div class="flex flex-col items-center max-w-sm border border-gray-200 rounded-lg shadow-lg">
 
                 <img class="rounded-t-lg" src="{{ Vite::asset('resources/images/success.svg') }}" alt=""
                     width="200px" />
@@ -16,7 +16,7 @@
 
                     <div class="inline-flex items-center justify-center gap-2">
 
-                        <a href="{{ route('home') }}" class="btn bg-gray-200 text-coklat">
+                        <a href="{{ route('home') }}" class="bg-gray-200 btn text-coklat">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke-width="1.5" stroke="currentColor" class="size-6">
                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -27,7 +27,7 @@
                             Beranda
                         </a>
 
-                        <button class="btn bg-green-400 text-coklat" wire:click="downloadPdf">
+                        <button class="bg-green-400 btn text-coklat" wire:click="downloadPdf">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke-width="1.5" stroke="currentColor" class="size-6">
                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -43,8 +43,8 @@
             </div>
         </div>
     @else
-        <div class="flex h-full justify-center items-center p-6">
-            <div class="max-w-sm flex flex-col items-center  border border-gray-200 rounded-lg shadow-lg">
+        <div class="flex items-center justify-center h-full p-6">
+            <div class="flex flex-col items-center max-w-sm border border-gray-200 rounded-lg shadow-lg">
 
                 <img class="rounded-t-lg" src="{{ Vite::asset('resources/images/thank.svg') }}" alt=""
                     width="200px" />
@@ -53,11 +53,11 @@
                         <h5 class="mb-2 text-2xl font-bold tracking-tight text-coklat ">
                             {{ $jawaban->peserta->nama_peserta }}</h5>
                     </a>
-                    <p class="mb-3 font-normal text-gray-700">Kamu sepertinya belum cocok untuk berada di jurusan
+                    <p class="mb-3 font-normal text-gray-700">Kamu sepertinya belum sesuai untuk berada di jurusan
                         {{ $jawaban->soal->jurusan->nama_jurusan }}</p>
                     <div class="inline-flex items-center justify-center gap-2">
 
-                        <a href="{{ route('home') }}" class="btn bg-gray-200 text-coklat">
+                        <a href="{{ route('home') }}" class="bg-gray-200 btn text-coklat">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke-width="1.5" stroke="currentColor" class="size-6">
                                 <path stroke-linecap="round" stroke-linejoin="round"
