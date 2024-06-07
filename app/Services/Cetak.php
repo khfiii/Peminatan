@@ -25,7 +25,7 @@ class Cetak{
     public function downloadPdf(string $filename){
         try {
             $passed = $this->checkPesertaLolos();
-            $cekLulus = $passed ? 'MAMPU' : 'BELUM SESUAI';
+            $cekLulus = $passed ? 'SESUAI' : 'BELUM SESUAI';
             $nisn = $this->jawaban->peserta->nisn;
             $namaPeserta = $this->jawaban->peserta?->nama_peserta;
             $namaJurusan = $this->jawaban->soal?->jurusan?->nama_jurusan;
